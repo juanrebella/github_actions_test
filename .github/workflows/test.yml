@@ -1,0 +1,44 @@
+name: test
+
+on: push
+
+jobs:
+
+  job1:
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check
+        uses: ./.github/action-check
+      - name: Run
+        run: timedatectl
+  job2:
+    name: job2
+    runs-on: windows-latest
+     steps:
+      - uses: actions/checkout@v2
+      - name: Check
+        uses: ./.github/action-check
+      - name: Run
+        run: echo %DATE% %TIME% 
+  job3:
+    name: job3
+    runs-on: macos-latest
+     steps:
+      - uses: actions/checkout@v2
+      - name: Check
+        uses: ./.github/action-check
+      - name: Run
+        run: ntpdate 
+  job4:
+    name: job4
+    needs: [job1, job2, job3]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Check
+        uses: ./.github/action-check
+      - name: Run
+        run: timedatectl
+
