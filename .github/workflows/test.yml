@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Check
-        uses: ./.github/action-check
       - name: Run
         run: timedatectl
   job2:
@@ -18,8 +16,6 @@ jobs:
     runs-on: windows-latest
      steps:
       - uses: actions/checkout@v2
-      - name: Check
-        uses: ./.github/action-check
       - name: Run
         run: echo %DATE% %TIME% 
   job3:
