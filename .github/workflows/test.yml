@@ -23,8 +23,6 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Check
-        uses: ./.github/action-check
       - name: Run
         run: ntpdate 
   job4:
@@ -33,8 +31,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Check
-        uses: ./.github/action-check
       - name: Run
         run: timedatectl
 
