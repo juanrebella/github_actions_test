@@ -17,14 +17,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run
-        run: echo %DATE% %TIME% 
+        run: echo date /t 
   job3:
     name: job3
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: Run
-        run: ntpdate 
+        run: date 
   job4:
     name: job4
     needs: [job1, job2, job3]
